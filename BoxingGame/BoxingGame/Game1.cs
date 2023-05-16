@@ -9,6 +9,10 @@ namespace BoxingGame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        string page;
+
+        SpriteFont font;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -19,7 +23,7 @@ namespace BoxingGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            page = "start";
             base.Initialize();
         }
 
@@ -28,6 +32,7 @@ namespace BoxingGame
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            font = Content.Load<SpriteFont>("font");
         }
 
         protected override void Update(GameTime gameTime)
@@ -42,10 +47,14 @@ namespace BoxingGame
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-
+            _spriteBatch.Begin();
+            if (page == "start") {
+                _spriteBatch.DrawString(font, "Press Enter To Start", new Vector2(100, _graphics.PreferredBackBufferHeight / 2), Color.White);
+            }
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }

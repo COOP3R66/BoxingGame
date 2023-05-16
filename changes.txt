@@ -1,0 +1,9 @@
+changed the background to black
+created a string called page to control which page the program is on and draw the relevent sprites
+initialised page to "start"
+created a new spritefont called "font"
+loaded spritefont "font" into a SpriteFont variable called "font"
+displayed instruction using DrawString "press enter to start" when the page is set to "start". Set the location to centrally in height and padded from the left by 100. Color was set to white.  
+
+System.ArgumentException: 'Text contains characters that cannot be resolved by this SpriteFont. Arg_ParamName_Name'
+Solved by increasing the character regions in the .spritefont file from 32 - 32 to 32 - 126

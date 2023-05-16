@@ -23,3 +23,4 @@ C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\obj\Debug\net6.
 C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\obj\Debug\net6.0\ref\BoxingGame.dll
 C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\obj\Debug\net6.0\BoxingGame.pdb
 C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\obj\Debug\net6.0\BoxingGame.genruntimeconfig.cache
+C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\bin\Debug\net6.0\Content\font.xnb

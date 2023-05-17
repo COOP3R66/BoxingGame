@@ -7,3 +7,23 @@ displayed instruction using DrawString "press enter to start" when the page is s
 
 System.ArgumentException: 'Text contains characters that cannot be resolved by this SpriteFont. Arg_ParamName_Name'
 Solved by increasing the character regions in the .spritefont file from 32 - 32 to 32 - 126
+
+------------------------------------------------------
+
+when enter is pressed on start page, variable page changes to "game"
+loaded the boxer textures and initialised their positions
+drew the boxers when page is set to "game"
+added input handling to allow red boxer to be moved back and forth with a and d respectively and left and right for  blue boxer 
+loaded in a new texture for punches
+added input so that when w is down red punches and up down blue punches 
+
+
+System.NullReferenceException: 'Object reference not set to an instance of an object.' BboxerTexture was null.
+Caused because boxer positions are dependent on the width of the textures which have not yet been loaded.
+Solved by using the integer values of the width and height of the textures based on the files they are from  
+System.ArgumentNullException: 'Value cannot be null. Arg_ParamName_Name'
+caused by attempting to draw a texture that had never been loaded
+solved by assigning boxerTexture in load content after content has been loaded 
+
+------------------------------------------------------
+

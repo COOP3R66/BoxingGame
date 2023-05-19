@@ -30,7 +30,6 @@ solved by assigning boxerTexture in load content after content has been loaded
 added code for collisions with the walls and other boxer
 added a duck texture
 added variables for energy and damadge levels 
-added code that allowed boxers to gain damadge when punched within range and not ducking 
 
 blue boxers collision with wall didnt work
 caused by not factoring in the boxer texture width 
@@ -40,7 +39,4 @@ caused by textures not having correct dimensions
 solved by editing characters
 boxers colliding locked movement 
 caused from incorecctly embedded if statements 
-solved by separarting if statements
-blue boxer can not punch unless in range
-caused by animation being within range if statement 
-solved by removing animation from the if statement 
+solved by separarting if statements 

@@ -17,15 +17,21 @@ namespace BoxingGame
         Texture2D RboxerTexture;
         Texture2D RboxerGuardTexture;
         Texture2D RboxerPunchTexture;
+        Texture2D RboxerDuckTexture;
         Vector2 RboxerPosition;
         string RboxerState;
+        int RboxerEnergy;
+        int RboxerDamadge;
 
         //blue boxer - boxer on the right
         Texture2D BboxerTexture;
         Texture2D BboxerGuardTexture;
         Texture2D BboxerPunchTexture;
+        Texture2D BboxerDuckTexture;
         Vector2 BboxerPosition;
         string BboxerState;
+        int BboxerEnergy;
+        int BboxerDamadge;
 
         public Game1()
         {
@@ -38,9 +44,13 @@ namespace BoxingGame
         {
             // TODO: Add your initialization logic here
             page = "start";
-            
-            BboxerPosition = new Vector2(_graphics.PreferredBackBufferWidth / 2 + 100, _graphics.PreferredBackBufferHeight /2  - 100);
-            RboxerPosition = new Vector2(_graphics.PreferredBackBufferWidth / 2 - 100 , _graphics.PreferredBackBufferHeight/ 2 - 100);
+
+            RboxerDamadge = 100;
+            RboxerEnergy = 10000;
+            BboxerDamadge = 100;
+            BboxerEnergy = 10000;
+            BboxerPosition = new Vector2(_graphics.PreferredBackBufferWidth / 2 + 100, _graphics.PreferredBackBufferHeight / 2 - 100);
+            RboxerPosition = new Vector2(_graphics.PreferredBackBufferWidth / 2 - 100, _graphics.PreferredBackBufferHeight / 2 - 100);
             base.Initialize();
         }
 
@@ -54,6 +64,8 @@ namespace BoxingGame
             BboxerGuardTexture = Content.Load<Texture2D>("blueguard");
             RboxerPunchTexture = Content.Load<Texture2D>("redpunch");
             BboxerPunchTexture = Content.Load<Texture2D>("bluepunch");
+            BboxerDuckTexture = Content.Load<Texture2D>("blueduck");
+            RboxerDuckTexture = Content.Load<Texture2D>("redduck");
 
             BboxerTexture = BboxerGuardTexture;
             RboxerTexture = RboxerGuardTexture;
@@ -68,46 +80,121 @@ namespace BoxingGame
             var kstate = Keyboard.GetState();
             if (page == "start")
             {
-                if (kstate.IsKeyDown(Keys.Enter)){
+                if (kstate.IsKeyDown(Keys.Enter)) {
                     page = "game";
                 }
             }
             else if (page == "game")
             {
-                if (kstate.IsKeyDown(Keys.D))
+                if (RboxerPosition.X + RboxerTexture.Width <= BboxerPosition.X + 30)
                 {
-                    RboxerPosition.X += 5;
+                    if (kstate.IsKeyDown(Keys.D))
+                    {
+                        RboxerPosition.X += 5;
+                        RboxerEnergy -= 2; 
+                    }
+                    if (kstate.IsKeyDown(Keys.Left))
+                    {
+                        BboxerPosition.X -= 5;
+                        BboxerEnergy -= 2;
+                    }
                 }
-                else if (kstate.IsKeyDown(Keys.A))
+                if (RboxerPosition.X > 0)
                 {
-                    RboxerPosition.X -= 5;
+                    if (kstate.IsKeyDown(Keys.A))
+                    {
+                        RboxerPosition.X -= 5;
+                        RboxerEnergy--;
+                    }
+
                 }
-                if (kstate.IsKeyDown(Keys.W))
+                if (BboxerPosition.X < _graphics.PreferredBackBufferWidth - BboxerTexture.Width)
+                {
+                    if (kstate.IsKeyDown(Keys.Right))
+                    {
+                        BboxerPosition.X += 5;
+                        BboxerEnergy--;
+                        
+                    }
+
+                }
+
+                if (kstate.IsKeyDown(Keys.S))
+                {
+                    RboxerTexture = RboxerDuckTexture;
+                    RboxerState = "ducking";
+                }
+                else if (kstate.IsKeyDown(Keys.W))
                 {
                     RboxerTexture = RboxerPunchTexture;
+                    RboxerEnergy -= 10;
+                    RboxerState = "punching";
+                    if (RboxerPosition.X + RboxerTexture.Width >= BboxerPosition.X + 25)
+                    {
+
+
+                        if (BboxerState == "guard")
+                        {
+                            BboxerDamadge++;
+                        }
+                        else if (BboxerState == "punching")
+                        {
+                            BboxerDamadge += 2;
+                        }
+                        else
+                        {
+
+                        }
+                    }
                 }
                 else
                 {
                     RboxerTexture = RboxerGuardTexture;
+                    RboxerState = "guard";
                 }
 
-                if (kstate.IsKeyDown(Keys.Right))
+                if (kstate.IsKeyDown(Keys.Down))
                 {
-                    BboxerPosition.X += 5;
+                    BboxerTexture = BboxerDuckTexture;
+                    BboxerState = "ducking";
                 }
-                else if (kstate.IsKeyDown(Keys.Left))
+                else if (kstate.IsKeyDown(Keys.Up))
                 {
-                    BboxerPosition.X -= 5;
-                }
-                if (kstate.IsKeyDown(Keys.Up))
-                {
-                    BboxerTexture = BboxerPunchTexture;
+                    if (RboxerPosition.X + RboxerTexture.Width >= BboxerPosition.X + 25)
+                    {
+                        BboxerTexture = BboxerPunchTexture;
+                        BboxerEnergy -= 10;
+                        BboxerState = "punching";
+                        if (RboxerState == "guard")
+                        {
+                            RboxerDamadge++;
+                        }
+                        else if (BboxerState == "punching")
+                        {
+                            RboxerDamadge += 2;
+                        }
+                        else
+                        {
+
+                        }
+                    }
                 }
                 else
                 {
                     BboxerTexture = BboxerGuardTexture;
+                    BboxerState = "guard";
                 }
+
             }
+
+
+
+
+            
+
+
+        
+    
             base.Update(gameTime);
         }
 
@@ -124,6 +211,11 @@ namespace BoxingGame
             {
                 _spriteBatch.Draw(RboxerTexture, RboxerPosition, Color.White);
                 _spriteBatch.Draw(BboxerTexture, BboxerPosition, Color.White);
+                _spriteBatch.DrawString(font, "Energy: " + ((int)RboxerEnergy/100), new Vector2(100, 50), Color.White);
+                _spriteBatch.DrawString(font, "Damadge: " + RboxerDamadge, new Vector2(100, 70), Color.White);
+                _spriteBatch.DrawString(font, "Energy: " + ((int)BboxerEnergy/100), new Vector2(500, 50), Color.White);
+                _spriteBatch.DrawString(font, "Damadge: " + BboxerDamadge, new Vector2(500, 70), Color.White);
+
             }
             _spriteBatch.End();
             base.Draw(gameTime);

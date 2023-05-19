@@ -28,3 +28,5 @@ C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\bin\Debug\net6.
 C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\bin\Debug\net6.0\Content\redguard.xnb
 C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\bin\Debug\net6.0\Content\bluepunch.xnb
 C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\bin\Debug\net6.0\Content\redpunch.xnb
+C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\bin\Debug\net6.0\Content\blueduck.xnb
+C:\Users\katie\Documents\GitHub\BoxingGame\BoxingGame\BoxingGame\bin\Debug\net6.0\Content\redduck.xnb

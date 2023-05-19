@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/redpunch.png</SourceFile>
-  <SourceTime>2023-05-19T16:06:58.3933974+01:00</SourceTime>
-  <DestFile>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/bin/DesktopGL/Content/redpunch.xnb</DestFile>
-  <DestTime>2023-05-19T16:11:50.0060604+01:00</DestTime>
+  <SourceFile>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/blueduck.png</SourceFile>
+  <SourceTime>2023-05-19T16:00:41.5767578+01:00</SourceTime>
+  <DestFile>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/bin/DesktopGL/Content/blueduck.xnb</DestFile>
+  <DestTime>2023-05-19T16:11:49.9125701+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T12:44:56+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

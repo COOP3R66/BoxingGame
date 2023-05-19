@@ -4,13 +4,17 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/blueduck.png</File>
     <File>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/blueguard.png</File>
     <File>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/bluepunch.png</File>
     <File>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/font.spritefont</File>
+    <File>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/redduck.png</File>
     <File>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/redguard.png</File>
     <File>C:/Users/katie/Documents/GitHub/BoxingGame/BoxingGame/BoxingGame/Content/redpunch.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
